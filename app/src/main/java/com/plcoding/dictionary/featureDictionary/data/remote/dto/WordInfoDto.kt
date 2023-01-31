@@ -17,5 +17,4 @@ data class WordInfoDto(
             word = word
         )
     }
-    
 }
