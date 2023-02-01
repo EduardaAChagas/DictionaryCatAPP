@@ -11,6 +11,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.plcoding.dictionary.featureDictionary.presentation.WordInfoItem
 import com.plcoding.dictionary.featureDictionary.presentation.WordInfoViewModel
 import com.plcoding.dictionary.ui.theme.DictionaryTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -67,7 +68,7 @@ class MainActivity : ComponentActivity() {
                                     if(i > 0) {
                                         Spacer(modifier = Modifier.height(8.dp))
                                     }
-                                    WordInfoItem(item = wordInfo)
+                                    WordInfoItem(wordInfo = wordInfo)
                                     if(i < state.wordInfoItems.size - 1) {
                                         Divider()
                                     }
@@ -75,7 +76,7 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
-
+                    if (state.isLoading) CircularProgressIndicator()
                 }
             }
         }
